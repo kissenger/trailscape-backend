@@ -17,7 +17,8 @@
   "version": "1.1.6",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "serve": "nodemon server.mjs"
   },
   "devDependencies": {
     "chai": "*",

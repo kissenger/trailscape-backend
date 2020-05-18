@@ -4,11 +4,11 @@
  * Functions directly supporting the PathWithStats class
  */
 
-import { debugMsg } from './debugging.js';
-import * as globals from './globals.js';
-import geolib from './test_node_modules/geo-points-and-paths';
+import geolib from 'geo-points-and-paths';
 const {Point, Path, geoFunctions} = geolib;
 
+import { debugMsg } from './debugging.js';
+import * as globals from './globals.js';
 
 /**
  * Returns an array of matched point pairs, useful for route categorisation but also sent to front end for debugging

@@ -10,17 +10,15 @@ import express from 'express';
 import multer from 'multer';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import './test_node_modules/dotenv/config';
-
-import { authRoute, verifyToken } from './auth';
-import { GeoJSON } from './class-geojso';
-import { gpxWriteFromDocument } from './gpx-read-write';
-import { debugMsg } from './debugging';
-import { mongoModel, getPathDocFromId, createMongoModel, bbox2Polygon } from './app-function';
-import { getListData, getRouteInstance } from './app-functions';
-
+import 'dotenv/config.js';
 const app = express();
 
+import { authRoute, verifyToken } from './auth.js';
+import { GeoJSON } from './class-geojson.js';
+import { gpxWriteFromDocument } from './gpx-read-write.js';
+import { debugMsg } from './debugging.js';
+import { mongoModel, getPathDocFromId, createMongoModel, bbox2Polygon } from './app-functions.js';
+import { getListData, getRouteInstance } from './app-functions.js';
 
 
 // apply middleware

@@ -8,8 +8,9 @@
 import express from 'express';
 import jsonwebtoken from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { debugMsg } from './debugging';
-import { Users } from './schema/user-models';
+
+import { debugMsg } from './debugging.js';
+import { Users } from './schema/user-models.js';
 
 const authRoute = express.Router();
 const KEY = process.env.AUTH_KEY;
