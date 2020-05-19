@@ -12,13 +12,13 @@ import bcrypt from 'bcrypt';
 import { debugMsg } from './debugging.js';
 import { Users } from './schema/user-models.js';
 
-const authRoute = express.Router();
+export const authRoute = express.Router();
 const KEY = process.env.AUTH_KEY;
 
 /**
  * middleware to confirm user has an acceptable token. returns userId in req if all is ok
  */
-function verifyToken(req, res, next) {
+export function verifyToken(req, res, next) {
 
   debugMsg('verifyToken');
 
@@ -59,7 +59,7 @@ authRoute.post('/update-user-data', verifyToken, (req, res) => {
 authRoute.post('/register', (req, res) => {
 // take incoming user data in the form {email, password}, hash password,
 // save to db, get json token and return to front end
-
+console.log('blah');
   debugMsg('register user');
 
   const saltRounds = 10;
@@ -132,4 +132,4 @@ authRoute.post('/login', (req, res) => {
 });
 
 
-export { authRoute, verifyToken };
+// export { authRoute, verifyToken };

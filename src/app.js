@@ -21,25 +21,22 @@ import { mongoModel, getPathDocFromId, createMongoModel, bbox2Polygon } from './
 import { getListData, getRouteInstance } from './app-functions.js';
 
 
-// apply middleware
-app.use(bodyParser.json());
-app.use(authRoute);
+// apply middleware - note setheaders must come first
 app.use( (req, res, next) => {
-  // inject a header into the response
   res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader("Access-Control-Allow-Headers","Origin, X-Request-With, Content-Type, Accept, Authorization, Content-Disposition");
   res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, DELETE, OPTIONS");
-
   next();
 });
-
+app.use(bodyParser.json());
+app.use(authRoute);
 
 
 // mongo as a service
 mongoose.connect(`mongodb+srv://root:${process.env.MONGODB_PASSWORD}@cluster0-gplhv.mongodb.net/trailscape?retryWrites=true`,
   {useUnifiedTopology: true, useNewUrlParser: true });
 
-  mongoose.connection
+mongoose.connection
   .on('error', console.error.bind(console, 'connection error:'))
   .on('close', () => console.log('MongoDB disconnected'))
   .once('open', () => console.log('MongoDB connected') );
