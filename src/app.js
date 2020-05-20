@@ -15,7 +15,7 @@ const app = express();
 
 import { authRoute, verifyToken } from './auth.js';
 import { GeoJSON } from './class-geojson.js';
-import { gpxWriteFromDocument } from './gpx-read-write.js';
+import { gpxRead, gpxWriteFromDocument } from './gpx-read-write.js';
 import { debugMsg } from './debugging.js';
 import { mongoModel, getPathDocFromId, createMongoModel, bbox2Polygon } from './app-functions.js';
 import { getListData, getRouteInstance } from './app-functions.js';
