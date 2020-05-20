@@ -4,7 +4,6 @@
  * Module provides all the global paramaters used throughout the backend
  */
 
-export const DEBUG = true;                   // if true prints debug messages to the backend terminal
 export const SIMPLIFY_TOLERANCE = 6;         // metres offset from a line below which a point will be deleted; higher tol -> greater simplification
 export const LONG_PATH_THRESHOLD = 4000;     // number of points (before simplification) above which the path will be treated as long
 export const MATCH_DISTANCE = 100;           // metres; if distance between two points is less than this they will be treated as matching

@@ -4,11 +4,8 @@
  * Utilities used for debugging
  */
 
-import { DEBUG } from './globals.js';
-
-
 export function debugMsg(msgString) {
-  if (DEBUG) {
+  if (process.env.DEBUG) {
     console.log(timeStamp() + ' >> ' + msgString);
   }
 }
