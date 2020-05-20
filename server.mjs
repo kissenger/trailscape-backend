@@ -1,21 +1,10 @@
 import app from './src/app.js';
 import { createServer } from 'http';
 
-// const debug = require("debug")("node-angular");
 const normalizePort = val => {
-
   const port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
+  if (isNaN(port)) { return val; }  // named pipe  
+  if (port >= 0) { return port; }   // port number
   return false;
 };
 
@@ -39,18 +28,14 @@ const onError = error => {
 };
 
 const onListening = () => {
-  const addr = server.address();
   const bind = typeof port === 'string' ? 'pipe ' + port : 'port ' + port;
-  // debug("Listening on " + bind);
+  console.log(`Listening on ${bind}`);
 };
 
 const port = normalizePort(process.env.PORT || '3000');
-// const port = normalizePort("3000");
-// set('port', port);
-
 const server = createServer(app);
-server.on('error', onError);
-server.on('listening', onListening);
-// server.listen(port);
+server
+  .on('error', onError)
+  .on('listening', onListening);
 
-server.listen(port, '0.0.0.0');
+server.listen(port);
